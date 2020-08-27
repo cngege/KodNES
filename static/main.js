@@ -11,13 +11,19 @@ kodReady.push(function(){
 				var url = '{{pluginHost}}static/page.html?nes='+core.path2url(path,true);
 					console.log("KodNES:"+encodeURI(url));
 					if('window' == "{{config.openWith}}" && !core.isFileView()){
-						window.open(url);      
+						window.open(url);
 					}else{
-						//core.openDialog(url,core.icon('{{pluginHost}}static/NES_Avatar.png'),htmlEncode(core.pathThis(path)));
+						//提示消息控件;用法:core.tips.tips(123)
 						core.openDialog(url,core.icon('{{pluginHost}}static/image/icon.png'),"KodNES:"+name);
 						//core.openDialog('{{pluginHost}}static/page.php?nes='+encodeURI(url),core.icon('{{pluginHost}}static/icons.png'),name);
 					}
 			},
 		});
 	});
+	if(!$.hasKey('plugin.KodNES.style')){  //只有首次处理,避免重复调用
+    	$.addStyle(
+    	".x-item-icon.x-nes,.x-item-icon.x-NES,.x-item-icon.x-Nes{\
+    		background-image:url('{{pluginHost}}static/image/fileicon.png');\
+    	}");
+	}
 });
