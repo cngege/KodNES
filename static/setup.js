@@ -29,8 +29,7 @@ let P1Down_AA,P1Down_BB,P2Down_AA,P2Down_BB;
 
 //跳转到GITHUB
 $(".github").click(function(){
-    //window.open("");
-    alert("还未在GITHUB建档,稍等");
+    window.open("https://github.com/cngege/KodNES.git");
 })
 
 //重新开始
