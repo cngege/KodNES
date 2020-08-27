@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Nes</title>
+    <style media="screen">
+      body{
+        margin: 0;
+        padding: 0;
+        background: #DAEFF8;
+        width: 100%;
+        height: 100vh;
+      }
+      .gameform{
+        position: relative;
+        width:100% !important;
+        height:100% !important;
+        display:table !important;
+        max-width: 120vh !important;
+        max-height: 99vh !important;
+        margin:0 auto;
+        overflow: hidden;
+      }
+
+      .btns{
+        position: absolute;
+        width:100% !important;
+        height: 80px;
+        max-width: 100vh !important;
+        top: -40px; 
+
+        margin:5px 10px;
+        transition: all .5s;
+      }
+      
+      .btnfixed{
+        top: 0px;
+      }
+
+      .btns:hover{
+        top: 0;
+      }
+
+      .btns button{
+        border: #fff solid 1px;
+        background: #DAEFF8;
+        color: #000;
+        box-sizing: border-box;
+        border-radius: 2px;
+        cursor: pointer;
+      }
+    </style>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jsnes.min.js"></script>
+    <script>
+        let url = document.URL.substr(document.URL.indexOf("=")+1);
+        //loadrom(url);
+        window.onload = function(){nes_load_url("gameCanvas", url);}
+    </script>
+  </head>
+  <body>
+    
+    <div class="gameform">
+      <div class="btns">
+        <button type="button" name="button" class="github">GitHub</button>
+        <button type="button" name="button" class="restart">重新开始</button>
+        <button type="button" name="button" class="fullS">退出/全屏</button>
+        <button type="button" name="button" class="fixed">取消/固定</button>
+      </div>
+      <canvas id="gameCanvas" class="gameCanvas" width="256" height="240" style="height: 99vh"></canvas>
+    </div>
+    <script type="text/javascript" src="setup.js"></script>
+    <script type="text/javascript" src="nes-embed.js"></script>
+  </body>
+</html>

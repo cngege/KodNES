@@ -1,0 +1,41 @@
+{
+	"id":"KodNES",
+	"name":"NES Emulator",
+	"title":"NES模拟器",
+	"version":"1.0",
+    "source":{
+		"icon":"{{pluginHost}}static/image/icon.png",
+		"screenshoot":[
+			"{{pluginHost}}static/image/nes1.png",
+			"{{pluginHost}}static/image/nes2.png"
+		]
+	},
+    "category":"media,file",
+    "description":"NES Rom文件支持系统模拟器、FC模拟器",
+	"keywords":"nes,fc,模拟器,游戏",
+	"auther":{
+		"copyright":"CNGEGE",
+		"homePage":"https://cngege.github.io/"
+	},
+	"configItem":{
+		"pluginAuth":{
+			"type":"userSelect",
+			"value":{"all":1},
+			"display":"{{LNG['admin.plugin.auth']}}",
+			"desc":"{{LNG['admin.plugin.authDesc']}}",
+			"require":1
+		},
+		"fileExt":{
+			"type":"tags",
+			"display":"{{LNG['admin.plugin.fileExt']}}",
+			"desc":"{{LNG['admin.plugin.fileExtDesc']}}",
+			"value":"nes"
+		},
+		"fileSort":{
+			"type":"number",
+			"display":"{{LNG['admin.plugin.fileSort']}}",
+			"desc":"{{LNG['admin.plugin.fileSortDesc']}}",
+			"value":10
+		}
+	}
+}
