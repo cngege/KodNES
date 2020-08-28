@@ -10,13 +10,15 @@
         background: #DAEFF8;
         width: 100%;
         height: 100vh;
+        background: url('image/bg.jpeg') no-repeat;
+        background-size: cover;
       }
       .gameform{
         position: relative;
         width:100% !important;
         height:100% !important;
         display:table !important;
-        max-width: 120vh !important;
+        max-width: 100vh !important;
         max-height: 99vh !important;
         margin:0 auto;
         overflow: hidden;
@@ -25,10 +27,9 @@
       .btns{
         position: absolute;
         width:100% !important;
-        height: 80px;
+        height: 70px;
         max-width: 100vh !important;
-        top: -40px; 
-
+        top: -40px;
         margin:5px 10px;
         transition: all .5s;
       }
@@ -41,31 +42,69 @@
         top: 0;
       }
 
-      .btns button{
-        border: #fff solid 1px;
-        background: #DAEFF8;
-        color: #000;
-        box-sizing: border-box;
-        border-radius: 2px;
-        cursor: pointer;
+      .btns span svg{
+          width: 20px;
+          height: 20px;
+          position: relative;
+          top:50%;
+          left: 50%;
+          transform:translate(-50% , -50%);
       }
+      
+      .btns a{
+        position: relative;
+        float: left;
+        display: block;
+        height: 32px;
+        margin: auto 3px;
+      }
+      
+      .btns a img{
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      
+      .btns span{
+        position: relative;
+        display: block;
+        float: left;
+        background: #00000046;
+        width: 32px;
+        height: 32px;
+        border-radius: 25px;
+        margin: auto 3px;
+        box-sizing: border-box;
+        cursor: pointer;
+        overflow: hidden;
+      }
+      
     </style>
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jsnes.min.js"></script>
     <script>
         let url = document.URL.substr(document.URL.indexOf("=")+1);
         //loadrom(url);
-        window.onload = function(){nes_load_url("gameCanvas", url);}
+        window.onload = function(){nes_load_url("gameCanvas", url);htmlinit(url);}
+        
+        //页面加载完成之后处理一些事件
+        function htmlinit(nesurl){
+            $(".btns a img").attr("src","https://img.shields.io/github/stars/cngege/KodNES");
+        }
     </script>
   </head>
   <body>
     
     <div class="gameform">
       <div class="btns">
-        <button type="button" name="button" class="github">GitHub</button>
-        <button type="button" name="button" class="restart">重新开始</button>
-        <button type="button" name="button" class="fullS">退出/全屏</button>
-        <button type="button" name="button" class="fixed">取消/固定</button>
+        <a href="https://github.com/cngege/KodNES/stargazers" target="_blank"><img alt="GitHub stars" src=""></a>
+        <span title="GitHub"><svg t="1598631691380" class="icon github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2137" width="200" height="200"><path d="M512 0C229.283787 0 0.142041 234.942803 0.142041 524.867683c0 231.829001 146.647305 428.553077 350.068189 497.952484 25.592898 4.819996 34.976961-11.38884 34.976961-25.294314 0-12.45521-0.469203-45.470049-0.725133-89.276559-142.381822 31.735193-172.453477-70.380469-172.453477-70.380469-23.246882-60.569859-56.816233-76.693384-56.816234-76.693385-46.493765-32.58829 3.540351-31.948468 3.540351-31.948467 51.356415 3.71097 78.356923 54.086324 78.356923 54.086324 45.683323 80.19108 119.817417 57.072162 148.993321 43.593236 4.649376-33.91059 17.915029-57.029508 32.50298-70.167195-113.675122-13.222997-233.151301-58.223843-233.1513-259.341366 0-57.285437 19.919806-104.163095 52.678715-140.846248-5.246544-13.265652-22.820334-66.626844 4.990615-138.884127 0 0 42.996069-14.076094 140.760939 53.787741 40.863327-11.644769 84.627183-17.445825 128.177764-17.6591 43.465272 0.213274 87.271782 6.014331 128.135109 17.6591 97.679561-67.906489 140.59032-53.787741 140.59032-53.787741 27.938914 72.257282 10.407779 125.618474 5.118579 138.884127 32.844219 36.683154 52.593405 83.560812 52.593405 140.846248 0 201.586726-119.646798 245.990404-233.663158 258.957473 18.341577 16.208835 34.721032 48.199958 34.721032 97.210357 0 70.167195-0.639822 126.7275-0.639823 143.960051 0 14.033439 9.213443 30.370239 35.190235 25.209005 203.250265-69.527373 349.769606-266.123484 349.769605-497.867175C1023.857959 234.942803 794.673558 0 512 0" fill="#1296db" p-id="2138"></path></svg></span>
+        <span title="重新开始"><svg t="1598634354350" class="icon restart" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2776" width="200" height="200"><path d="M511.964163 0.000213A515.803894 515.803894 0 0 0 85.32736 229.104176v-106.6592a42.66368 42.66368 0 1 0-85.32736 0v213.318401a42.66368 42.66368 0 0 0 42.66368 42.66368h213.318401a42.66368 42.66368 0 0 0 0-85.327361H145.269831a426.636802 426.636802 0 1 1-9.599328 419.383977 42.66368 42.66368 0 0 0-75.088077 40.103859A511.964163 511.964163 0 1 0 511.964163 0.000213z" fill="#1296db" p-id="2777"></path></svg></span>
+        <span title="退出/全屏"><svg t="1598634394230" class="icon fullS" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3622" width="200" height="200"><path d="M846.787 133.787c11.716-11.716 30.71-11.716 42.426 0 11.716 11.716 11.716 30.71 0 42.426L649.44 415.987c-11.715 11.716-30.71 11.716-42.426 0-11.716-11.716-11.716-30.71 0-42.426l239.774-239.774zM373.645 606.928c11.716-11.716 30.711-11.716 42.427 0 11.716 11.716 11.716 30.71 0 42.427L177.213 888.213c-11.716 11.716-30.71 11.716-42.426 0-11.716-11.716-11.716-30.71 0-42.426l238.858-238.859zM177.213 133.787c-11.716-11.716-30.71-11.716-42.426 0-11.716 11.716-11.716 30.71 0 42.426l238.858 238.859c11.716 11.716 30.711 11.716 42.427 0 11.716-11.716 11.716-30.71 0-42.427L177.213 133.787z m471.311 471.31c-11.715-11.715-30.71-11.715-42.426 0-11.716 11.717-11.716 30.712 0 42.427l240.689 240.69c11.716 11.715 30.71 11.715 42.426 0 11.716-11.717 11.716-30.711 0-42.427l-240.689-240.69z" fill="#1296db" p-id="3623"></path><path d="M867 156H692.302c-16.569 0-30-13.431-30-30 0-16.569 13.431-30 30-30h177.23C901.272 96 927 121.729 927 153.467v177.68c0 16.57-13.431 30-30 30-16.569 0-30-13.43-30-30V156z m0 534.118c0-16.569 13.431-30 30-30 16.569 0 30 13.431 30 30v178.415C927 900.27 901.271 926 869.533 926H691.386c-16.568 0-30-13.431-30-30 0-16.569 13.432-30 30-30H867V690.118zM332.55 866c16.57 0 30 13.431 30 30 0 16.569-13.43 30-30 30H154.468C122.73 926 97 900.271 97 868.533v-177.5c0-16.568 13.431-30 30-30 16.569 0 30 13.432 30 30V866h175.55zM157 156v175.148c0 16.568-13.431 30-30 30-16.569 0-30-13.432-30-30v-177.68C97 121.728 122.729 96 154.467 96h178.084c16.568 0 30 13.431 30 30 0 16.569-13.432 30-30 30H157z" fill="#1296db" p-id="3624"></path></svg></span>
+        <span title="取消/固定"><svg t="1598634445672" class="icon fixed" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4329" width="200" height="200"><path d="M958.9 895.8L732 668.9l-63 63 227 226.9 64 1.3zM792.3 379l-102.5-12.7-311-284.7c-25.2-24-65.7-23.4-90.1 1l-206 205.9c-24.6 24.6-25 65.1-1.1 90.2l284.8 311.1 12.7 102.5c0 74.7 55.1 104.7 108 51.7L844 487.1c53-53 23.1-108.1-51.7-108.1zM439.7 610.1c-4.2 4.2-9.7 6.4-15.6 6.4s-11.4-2.3-15.7-6.5l-254-254.3c-8.4-8.4-8.6-22.5-0.2-31l43.7-45c4.2-4.4 9.7-6.7 15.9-6.7 5.7 0 11.2 2.3 15.3 6.3 4.3 4 6.5 9.6 6.8 15.4 0.1 5.9-2.1 11.5-6.3 15.8l-28.5 29.3 238.6 239c8.6 8.6 8.5 22.6 0 31.3z" p-id="4330" fill="#d4237a"></path></svg></span>
+        
+        
+        
       </div>
       <canvas id="gameCanvas" class="gameCanvas" width="256" height="240" style="height: 99vh"></canvas>
     </div>

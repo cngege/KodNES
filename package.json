@@ -2,12 +2,13 @@
 	"id":"KodNES",
 	"name":"NES Emulator",
 	"title":"NES模拟器",
-	"version":"1.3",
+	"version":"1.4",
     "source":{
 		"icon":"{{pluginHost}}static/image/icon.png",
 		"screenshoot":[
 			"{{pluginHost}}static/image/nes1.png",
-			"{{pluginHost}}static/image/nes2.png"
+			"{{pluginHost}}static/image/nes2.png",
+			"{{pluginHost}}static/image/nes3.png"
 		]
 	},
     "category":"media,file",
