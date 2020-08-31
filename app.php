@@ -11,6 +11,7 @@ class KodNESPlugin extends PluginBase{
     }
     public function echoJs() {
         $this->echoFile('static/main.js'); //通过文件输出;支持模板变量
+        $this->echoFile('static/config.js'); //通过文件输出;支持模板变量
     }
 	public function index() {
 		include($this->pluginPath.'static/page.html');

@@ -1,0 +1,42 @@
+<div id="KEYSELECTBOX">
+  <div id="KEYSELECT" title="鼠标悬浮后按下按键将阻止输入框输入等默认事件">
+    <style>
+      span#selectkeyvalue{
+        color:#0097e6;
+        line-height:20px;
+      }
+      span.Textinfo{
+        color:#44bd32;
+        font-size:13px;
+        line-height:10px;
+      }
+      div#KEYSELECT{
+        border:3px dashed #c5f6fa;
+        width:100px;
+        height:20px;
+        text-align:center;
+        margin:auto;
+        transition: all .5s;
+      }
+      div#KEYSELECT:hover{
+        border:3px dashed #487eb0;
+        width:150px;
+      }
+      div#KEYSELECTBOX{
+        width:100%;
+      }
+    </style>
+    <span class="Textinfo">KEY检测:</span>
+    <span id="selectkeyvalue">0</span>
+    <script type="text/javascript">
+      document.onkeydown = function(e){
+        if(document.getElementById('KEYSELECT').style.width=="150px"){
+          e.stopPropagation();
+          e.preventDefault();
+        }
+        document.getElementById('selectkeyvalue').innerHTML = e.keyCode;
+      }
+      $("div#KEYSELECTBOX").parent().css("width","100%");
+    </script>
+  </div>
+</div>

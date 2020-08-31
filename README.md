@@ -13,6 +13,7 @@
 默认键位：
 ---
 键位修改可以在KodNES/static/setup.js中修改
+后续可直接在配置插件-插件菜单中修改
 
 |  手柄键   | 玩家1  |  玩家2  |
 |  ----  | ----  | ----  |
@@ -29,6 +30,9 @@
 
 ![此处输入图片的描述][2]
 
+（将）支持直接在插件安装面板修改游戏按键映射
+![此处输入图片的描述][3]
 
   [1]: https://s1.ax1x.com/2020/08/27/d4eSjH.png
-  [2]: https://s1.ax1x.com/2020/08/27/d4uGPP.png
+  [2]: https://i.loli.net/2020/08/31/EX6FuHwe3sIWZKP.png
+  [3]: https://i.loli.net/2020/08/31/anoYX3QBKe6FM1m.png
