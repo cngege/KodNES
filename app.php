@@ -13,6 +13,6 @@ class KodNESPlugin extends PluginBase{
         $this->echoFile('static/main.js'); //通过文件输出;支持模板变量
     }
 	public function index() {
-		//include($this->pluginPath.'static/page.html');
+		include($this->pluginPath.'static/page.html');
 	}
 }

@@ -8,8 +8,9 @@ kodReady.push(function(){
 			ext:"{{config.fileExt}}",
 			sort:"{{config.fileSort}}",  
 			callback:function(path,ext,name){
-				var url = '{{pluginHost}}static/page.html?nes='+core.path2url(path,true);
-					console.log("KodNES:"+encodeURI(url));
+				//var url = '{{pluginHost}}static/page.html?nes='+core.path2url(path,true);
+				var url = '{{pluginApi}}&nespath='+window.btoa(core.path2url(path,true));
+					//console.log("KodNES:"+encodeURI(url));
 					if('window' == "{{config.openWith}}" && !core.isFileView()){
 						window.open(url);
 					}else{
