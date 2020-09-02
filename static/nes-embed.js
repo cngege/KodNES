@@ -12,6 +12,8 @@ var audio_samples_L = new Float32Array(SAMPLE_COUNT);
 var audio_samples_R = new Float32Array(SAMPLE_COUNT);
 var audio_write_cursor = 0, audio_read_cursor = 0;
 
+var netload = 0;
+
 var nes = new jsnes.NES({
 	onFrame: function(framebuffer_24){
 		for(var i = 0; i < FRAMEBUFFER_SIZE; i++) framebuffer_u32[i] = 0xFF000000 | framebuffer_24[i];
@@ -39,7 +41,7 @@ function audio_callback(event){
 	var len = dst.length;
 	
 	// Attempt to avoid buffer underruns.
-	if(audio_remain() < AUDIO_BUFFERING) nes.frame();
+	if(audio_remain() < AUDIO_BUFFERING && netload == 200) nes.frame();
 	
 	var dst_l = dst.getChannelData(0);
 	var dst_r = dst.getChannelData(1);
@@ -225,8 +227,9 @@ function nes_load_url(canvas_id, path){
 	req.onerror = () => console.log(`Error loading ${path}: ${req.statusText}`);
 	
 	req.onload = function() {
+	    netload = this.status;
 		if (this.status === 200) {
-		nes_boot(this.responseText);
+		    nes_boot(this.responseText);
 		} else if (this.status === 0) {
 			// Aborted, so ignore error
 		} else {
