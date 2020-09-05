@@ -20,7 +20,15 @@
 		"homePage":"https://cngege.github.io/"
 	},
 	"configItem":{
-	    "PluginTitle":{"display":"<h4 style='color:#ffaf40'>插件设置</h4>"},
+	    "formStyle": {
+			"className": "form-box-title-left",
+			"tabs": {
+			    "取键盘键值":"KeySelect",
+				"P1按键映射": "P1Title,P1Up,P1Down,P1Left,P1Right,P1Select,P1Start,P1A,P1B,P1AA,P1BB",
+				"P2按键映射": "P2Title,P2Up,P2Down,P2Left,P2Right,P2Select,P2Start,P2A,P2B,P2AA,P2BB"
+			}
+		},
+	    "PluginTitle":{"type":"html","display":"<h4 style='color:#ffaf40'>插件设置</h4>"},
 		"pluginAuth":{
 			"type":"userSelect",
 			"value":{"all":1},
@@ -44,145 +52,144 @@
             "type":"html",
             "display":"<div id=KEYSELECTBOX><div id=KEYSELECT title=鼠标悬浮后按下按键将阻止输入框输入等默认事件><style>span#selectkeyvalue{color:#0097e6;line-height:20px}span.Textinfo{color:#44bd32;font-size:13px;line-height:10px}div#KEYSELECT{border:3px dashed #c5f6fa;width:100px;height:20px;text-align:center;margin:auto;transition:all .5s}div#KEYSELECT:hover{border:3px dashed #487eb0;width:150px}div#KEYSELECTBOX{width:100%}</style><span class=Textinfo>KEY检测:</span> <span id=selectkeyvalue>0</span><script type=text/javascript>document.onkeydown=function(e){\"150px\"==document.getElementById(\"KEYSELECT\").style.width&&(e.stopPropagation(),e.preventDefault()),document.getElementById(\"selectkeyvalue\").innerHTML=e.keyCode},$(\"div#KEYSELECTBOX\").parent().css(\"width\",\"100%\");</script></div></div>"
         },
-        "P1Title":{"display":"<h4 style='color:#00a8ff'>Player1</h4>"},
+        "P1Title":{"type":"html","display":"<h4 style='color:#00a8ff'>Player1</h4>"},
         "P1Up":{
             "type":"number",
-            "value":"87",
+            "value":87,
             "display":"方向键:上",
             "desc":"整数型键值",
             "require":1
         },
         "P1Down":{
             "type":"number",
-            "value":"83",
+            "value":83,
             "display":"方向键:下",
             "desc":"整数型键值",
             "require":1
         },
         "P1Left":{
             "type":"number",
-            "value":"65",
+            "value":65,
             "display":"方向键:左",
             "desc":"整数型键值",
             "require":1
         },
         "P1Right":{
             "type":"number",
-            "value":"68",
+            "value":68,
             "display":"方向键:右",
             "desc":"整数型键值",
             "require":1
         },
         "P1Select":{
             "type":"number",
-            "value":"86",
+            "value":86,
             "display":"功能键:Select",
             "desc":"整数型键值",
             "require":1
         },
         "P1Start":{
             "type":"number",
-            "value":"66",
+            "value":66,
             "display":"功能键:Start",
             "desc":"整数型键值",
             "require":1
         },
         "P1A":{
             "type":"number",
-            "value":"75",
+            "value":75,
             "display":"功能键:A",
             "desc":"整数型键值",
             "require":1
         },
         "P1B":{
             "type":"number",
-            "value":"74",
+            "value":74,
             "display":"功能键:B",
             "desc":"整数型键值",
             "require":1
         },
         "P1AA":{
             "type":"number",
-            "value":"73",
+            "value":73,
             "display":"功能键:连A",
             "desc":"整数型键值",
             "require":1
         },
         "P1BB":{
             "type":"number",
-            "value":"85",
+            "value":85,
             "display":"功能键:连B",
             "desc":"整数型键值",
             "require":1
         },
-        
-        "P2Title":{"display":"<h4 style='color:#e84118'>Player2</h4>"},
+        "P2Title":{"type":"html","display":"<h4 style='color:#e84118'>Player2</h4>"},
         "P2Up":{
             "type":"number",
-            "value":"38",
+            "value":38,
             "display":"方向键:上",
             "desc":"整数型键值",
             "require":1
         },
         "P2Down":{
             "type":"number",
-            "value":"40",
+            "value":40,
             "display":"方向键:下",
             "desc":"整数型键值",
             "require":1
         },
         "P2Left":{
             "type":"number",
-            "value":"37",
+            "value":37,
             "display":"方向键:左",
             "desc":"整数型键值",
             "require":1
         },
         "P2Right":{
             "type":"number",
-            "value":"39",
+            "value":39,
             "display":"方向键:右",
             "desc":"整数型键值",
             "require":1
         },
         "P2Select":{
             "type":"number",
-            "value":"96",
+            "value":96,
             "display":"功能键:Select",
             "desc":"整数型键值",
             "require":1
         },
         "P2Start":{
             "type":"number",
-            "value":"110",
+            "value":110,
             "display":"功能键:Start",
             "desc":"整数型键值",
             "require":1
         },
         "P2A":{
             "type":"number",
-            "value":"99",
+            "value":99,
             "display":"功能键:A",
             "desc":"整数型键值",
             "require":1
         },
         "P2B":{
             "type":"number",
-            "value":"98",
+            "value":98,
             "display":"功能键:B",
             "desc":"整数型键值",
             "require":1
         },
         "P2AA":{
             "type":"number",
-            "value":"102",
+            "value":102,
             "display":"功能键:连A",
             "desc":"整数型键值",
             "require":1
         },
         "P2BB":{
             "type":"number",
-            "value":"101",
+            "value":101,
             "display":"功能键:连B",
             "desc":"整数型键值",
             "require":1

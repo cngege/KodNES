@@ -14,7 +14,7 @@ kodReady.push(function(){
 					if('window' == "{{config.openWith}}" && !core.isFileView()){
 						window.open(url);
 					}else{
-						//提示消息控件;用法:core.tips.tips(123)
+						
 						core.openDialog(url,core.icon('{{pluginHost}}static/image/icon.png'),"KodNES:"+name);
 						//core.openDialog('{{pluginHost}}static/page.php?nes='+encodeURI(url),core.icon('{{pluginHost}}static/icons.png'),name);
 					}
