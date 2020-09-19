@@ -133,6 +133,17 @@ function keyboard(callback, event,UD){
 	}
 }
 
+function ABDown(player){
+    nes.buttonDown(player,jsnes.Controller.BUTTON_A);
+    nes.buttonDown(player,jsnes.Controller.BUTTON_B);
+}
+
+function ABUp(player){
+    nes.buttonUp(player,jsnes.Controller.BUTTON_A);
+    nes.buttonUp(player,jsnes.Controller.BUTTON_B);
+}
+
+
 //Player1
 function ClickP1B(){
     if(P1Down_BB){
@@ -242,3 +253,5 @@ function nes_load_url(canvas_id, path){
 
 document.addEventListener('keydown', (event) => {keyboard(nes.buttonDown, event,"D")});
 document.addEventListener('keyup', (event) => {keyboard(nes.buttonUp, event,"U")});
+
+

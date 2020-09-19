@@ -2,14 +2,20 @@
 <html lang="zh" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Nes</title>
+    <title>KodNES</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <style media="screen">
+      html{
+          width: 100%;
+          height: 100%;
+      }
+        
       body{
         margin: 0;
         padding: 0;
         background: #DAEFF8;
         width: 100%;
-        height: 100vh;
+        //height: 100vh;
         background: url('<?php echo $this->pluginHost;?>static/image/bg.jpeg') no-repeat;
         background-size: cover;
       }
@@ -20,7 +26,7 @@
         display:table !important;
         max-width: 100vh !important;
         max-height: 99vh !important;
-        margin:0 auto;
+        margin:auto auto;
         overflow: hidden;
       }
 
@@ -79,6 +85,43 @@
         overflow: hidden;
       }
       
+      .BTNL,.BTNR{
+          position: absolute;
+          bottom: 0;
+          padding: 10px;
+          margin: 10px;
+          display: none;
+      }
+      
+      .BTNL{
+          left: -100px;
+      }
+      
+      .BTNR{
+          right: -110px;
+      }
+      
+      .BTNL span,.BTNR span{
+          position: relative;
+          display: block;
+          background-color: #fff;
+          color: #000;
+          width: 60px;
+          height: 60px;
+          border-radius: 100%;
+          margin: 10px;
+          box-shadow: inset 5px 2px 3px 4px rgba(0,0,0,.5);
+      }
+      
+      .BTNL span b, .BTNR span b{
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%,-50%);
+          -webkit-user-select: none;/*禁用手机浏览器的用户选择功能 */
+          -moz-user-select: none;
+      }
+      
     </style>
     <?php $this->link('static/jquery.min.js');?>
     <?php $this->link('static/jsnes/jsnes.js');?>
@@ -86,16 +129,53 @@
     <?php $this->link('static/nes-embed.js');?>
     <script>
         
-        let url = window.atob('<?php echo $_GET["nespath"];?>');
+        let url = window.atob('<?php echo @$_GET["nespath"];?>');
         //console.log("url:"+document.URL);
         //页面加载完成之后处理一些事件
         window.onload = function (){
             nes_load_url("gameCanvas", url);
             $(".btns a img").attr("src","https://img.shields.io/github/stars/cngege/KodNES");
         }
+        
+        $(document).ready(function(){
+            //手机页面
+            if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){
+                let bodycss = {
+                    position: "absolute",
+                    transform: "translate(-50%,-50%)",
+                    top: "50%",
+                    left: "50%",
+                    background:"#000"   //取消背景
+                }
+                
+                $(".BTNL,.BTNR").css("display","inline"); //移到设备显示按钮
+                $(".btns").addClass("btnfixed");    //导航栏按钮固定
+                
+                
+                            
+                //不是横屏
+                if(window.screen.width < window.screen.height){
+                    bodycss.transform = "translate(-50%,-50%) rotate(90deg)";       //body样式旋转
+                    $(".gameCanvas").css("height",document.body.clientWidth);       //撑满画布
+                }
+                $(".gameCanvas").css("height",document.body.clientHeight);          //撑满画布
+                
+                
+                
+                $("body").css(bodycss);     //应用body样式
+            }
+        })
     </script>
   </head>
   <body>
+    <div class="BTNL">
+        <span class="SE" style="position: relative;left: -50px;top: 40px;"><b>SE</b></span>
+        
+        <span class="U" style="position: relative;left: -50px;top: 90px;"><b>U</b></span>
+        <span class="D" style="position: relative;left: -50px;top: 120px;"><b>D</b></span>
+        <span class="L" style="position: relative;left: -100px;top: 0px;"><b>L</b></span>
+        <span class="R" style="position: relative;left: 0;top: -70px;"><b>R</b></span>
+    </div>
     
     <div class="gameform">
       <div class="btns">
@@ -107,6 +187,16 @@
         
       </div>
       <canvas id="gameCanvas" class="gameCanvas" width="256" height="240" style="height: 99vh"></canvas>
+    </div>
+    
+    <div class="BTNR">
+        <span class="ST" style="position: relative;left: 20px;top: 90px;"><b>ST</b></span>
+        <span class="AB" style="position: relative;left: 55px;top: 90px;"><b>AB</b></span>
+        
+        <span class="A" style="position: relative;left: 100px;top: 170px;"><b>A</b></span>
+        <span class="B" style="position: relative;left: 20px;top: 100px;"><b>B</b></span>
+        <span class="X" style="position: relative;left: 100px;top: -50px;"><b>X</b></span>
+        <span class="Y" style="position: relative;left: 20px;top: -120px;"><b>Y</b></span>
     </div>
     <?php $this->link('static/OnEvent.js');?>
   </body>

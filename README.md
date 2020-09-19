@@ -33,6 +33,14 @@
 （将）支持直接在插件安装面板修改游戏按键映射
 ![此处输入图片的描述][3]
 
+移动设备支持
+--------
+
+1.6版本开始支持移动设备上触摸操作
+![移动设备支持][4]
+
+
   [1]: https://s1.ax1x.com/2020/08/27/d4eSjH.png
   [2]: https://i.loli.net/2020/08/31/EX6FuHwe3sIWZKP.png
   [3]: https://i.loli.net/2020/08/31/anoYX3QBKe6FM1m.png
+  [4]: https://i.loli.net/2020/09/20/aimtI4KpzYJZWX8.jpg
