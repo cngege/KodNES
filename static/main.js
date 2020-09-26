@@ -4,7 +4,7 @@ kodReady.push(function(){
 		appList.push({
 			name:"KodNES",
 			title:LNG['admin.plugin.defaultKodNES'],
-			icon:'{{pluginHost}}static/icon.png',
+			icon:'{{pluginHost}}static/image/icon.png',
 			ext:"{{config.fileExt}}",
 			sort:"{{config.fileSort}}",  
 			callback:function(path,ext,name){
