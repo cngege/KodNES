@@ -15,7 +15,7 @@
         padding: 0;
         background: #DAEFF8;
         width: 100%;
-        //height: 100vh;
+        /*height: 100vh;*/
         background: url('<?php echo $this->pluginHost;?>static/image/bg.jpeg') no-repeat;
         background-size: cover;
       }
@@ -126,12 +126,40 @@
     <?php $this->link('static/jquery.min.js');?>
     <?php $this->link('static/jsnes/jsnes.js');?>
     <?php $this->link('static/config.js');?>
+    <script type="text/javascript" charset="utf-8">
+
+        KB.P1 = {
+            UP:<?php echo $key["P1Up"] ?>,//W
+            DOWN:<?php echo $key["P1Down"]; ?>,//S
+            LEFT:<?php echo $key["P1Left"]; ?>,//A
+            RIGHT:<?php echo $key["P1Right"]; ?>,//D
+            SELECT:<?php echo $key["P1Select"]; ?>,//V
+            START:<?php echo $key["P1Start"]; ?>,//B
+            B:<?php echo $key["P1B"]; ?>,//J
+            A:<?php echo $key["P1A"]; ?>,//K
+            BB:<?php echo $key["P1BB"]; ?>,//U
+            AA:<?php echo $key["P1AA"]; ?>//I
+          };
+        KB.P2 ={
+            UP:<?php echo $key["P2Up"]; ?>,//up
+            DOWN:<?php echo $key["P2Down"]; ?>,//S
+            LEFT:<?php echo $key["P2Left"]; ?>,//A
+            RIGHT:<?php echo $key["P2Right"]; ?>,//D
+            SELECT:<?php echo $key["P2Select"]; ?>,//V
+            START:<?php echo $key["P2Start"]; ?>,//B
+            B:<?php echo $key["P2B"]; ?>,//J
+            A:<?php echo $key["P2A"]; ?>,//K
+            BB:<?php echo $key["P2BB"]; ?>,//U
+            AA:<?php echo $key["P2AA"]; ?>//I
+          }
+    </script>
     <?php $this->link('static/nes-embed.js');?>
     <script>
-        
+
         let url = window.atob('<?php echo @$_GET["nespath"];?>');
         //console.log("url:"+document.URL);
         //页面加载完成之后处理一些事件
+        
         window.onload = function (){
             nes_load_url("gameCanvas", url);
             $(".btns a img").attr("src","https://img.shields.io/github/stars/cngege/KodNES");
@@ -166,6 +194,7 @@
             }
         })
     </script>
+    
   </head>
   <body>
     <div class="BTNL">
