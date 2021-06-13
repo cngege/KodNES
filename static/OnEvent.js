@@ -14,6 +14,21 @@ $(".fullS").click(function(e){
     fullS(e);
 })
 
+//去像素化 默认最开始就是像素化 画面较为清晰
+$(".UnPixel").click(function(e){
+    if(localStorage.getItem("KodNES_Unpixel") == "1"){
+        localStorage.setItem("KodNES_Unpixel","0");
+        $(".gameCanvas").css("image-rendering","optimizespeed");
+        $(".UnPixel path").attr("fill","#fbc531");
+        $(this).parent().attr("title","去像素化")
+    }else{
+        $(".gameCanvas").css("image-rendering","auto");
+        localStorage.setItem("KodNES_Unpixel","1");
+        $(".UnPixel path").attr("fill","#1296db");
+        $(this).parent().attr("title","像素化")
+    }
+})
+
 function fullS(e){
     // 设置全屏
     var element = document.documentElement;     // 返回 html dom 中的root 节点 <html>
