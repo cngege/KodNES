@@ -5,7 +5,7 @@ $(".github").click(function(){
 
 //重新开始
 $(".restart").click(function(){
-    location.reload();
+    nes.reloadROM();
 })
 
 
