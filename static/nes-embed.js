@@ -131,6 +131,7 @@ function keyboard(callback, event,UD){
         
 		default: break;
 	}
+	nes.frame();
 }
 
 function ABDown(player){
@@ -241,6 +242,9 @@ function nes_load_url(canvas_id, path){
 	    netload = this.status;
 		if (this.status === 200) {
 		    nes_boot(this.responseText);
+		    this.loop = setInterval(function(){
+		        nes.frame();
+		    },16)
 		} else if (this.status === 0) {
 			// Aborted, so ignore error
 		} else {
