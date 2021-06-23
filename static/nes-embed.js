@@ -181,8 +181,8 @@ function ClickP2B(){
         setTimeout(function(){
           if(!P2Down_BB)return;
           ClickP2B();
-        },50);
-      },50)
+        },33);
+      },33)
     }
 }
 
@@ -194,8 +194,8 @@ function ClickP2A(){
         setTimeout(function(){
           if(!P2Down_AA)return;
           ClickP2A();
-        },50);
-      },50)
+        },33);
+      },33)
     }
 }
 
@@ -228,11 +228,12 @@ function nes_boot(rom_data){
 function nes_load_data(canvas_id, rom_data){
 	nes_init(canvas_id);
 	nes_boot(rom_data);
+	nes.ppu.clipToTvSize=false;   //去除画布周边黑框
 }
 
 function nes_load_url(canvas_id, path){
 	nes_init(canvas_id);
-	
+	nes.ppu.clipToTvSize=false;   //去除画布周边黑框
 	var req = new XMLHttpRequest();
 	req.open("GET", path);
 	req.overrideMimeType("text/plain; charset=x-user-defined");
@@ -242,8 +243,9 @@ function nes_load_url(canvas_id, path){
 	    netload = this.status;
 		if (this.status === 200) {
 		    nes_boot(this.responseText);
-		    this.loop = setInterval(function(){
-		        nes.frame();
+		    nes.loopfps = setInterval(function(){
+		        if(this.mmap)
+		            nes.frame();
 		    },16)
 		} else if (this.status === 0) {
 			// Aborted, so ignore error
