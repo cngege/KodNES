@@ -214,7 +214,9 @@ function nes_init(canvas_id){
 	framebuffer_u32 = new Uint32Array(buffer);
 	
 	// Setup audio.
-	var audio_ctx = new window.AudioContext();
+	//var audio_ctx = new window.AudioContext();
+	var contextClass =(window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.oAudioContext || window.msAudioContext); 
+    var audio_ctx = new contextClass();
 	var script_processor = audio_ctx.createScriptProcessor(AUDIO_BUFFERING, 0, 2);
 	script_processor.onaudioprocess = audio_callback;
 	script_processor.connect(audio_ctx.destination);
@@ -238,15 +240,14 @@ function nes_load_url(canvas_id, path){
 	req.open("GET", path);
 	req.overrideMimeType("text/plain; charset=x-user-defined");
 	req.onerror = () => console.log(`Error loading ${path}: ${req.statusText}`);
-	
 	req.onload = function() {
 	    netload = this.status;
 		if (this.status === 200) {
 		    nes_boot(this.responseText);
-		    nes.loopfps = setInterval(function(){
-		        if(this.mmap)
-		            nes.frame();
-		    },16)
+		  //  nes.loopfps = setInterval(function(){
+		  //      if(this.mmap)
+		  //          nes.frame();
+		  //  },16)
 		} else if (this.status === 0) {
 			// Aborted, so ignore error
 		} else {
