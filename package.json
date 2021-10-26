@@ -9,7 +9,8 @@
 			"{{pluginHost}}static/image/nes1.png",
 			"{{pluginHost}}static/image/nes2.png",
 			"{{pluginHost}}static/image/nes3.png",
-			"{{pluginHost}}static/image/nes4.png"
+			"{{pluginHost}}static/image/nes4.png",
+			"{{pluginHost}}static/image/nes5.png"
 		]
 	},
     "category":"media,file",
