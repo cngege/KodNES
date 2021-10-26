@@ -40,6 +40,6 @@
 
 
   [1]: https://s1.ax1x.com/2020/08/27/d4eSjH.png
-  [2]: https://s.pc.qq.com/tousu/img/20210515/7422166_1621072366.jpg
-  [3]: https://s.pc.qq.com/tousu/img/20210515/2586070_1621072398.jpg
-  [4]: https://s.pc.qq.com/tousu/img/20210515/2812509_1621072433.jpg
+  [2]: https://raw.githubusercontent.com/cngege/KodNES/master/static/image/nes1.png
+  [3]: https://raw.githubusercontent.com/cngege/KodNES/master/static/image/nes4.png
+  [4]: https://raw.githubusercontent.com/cngege/KodNES/master/static/image/nes5.png
