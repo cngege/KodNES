@@ -25,6 +25,7 @@ var nes = new jsnes.NES({
 	},
 });
 
+// requestAnimationFrame 让浏览器下次渲染页面的时候(60fps),调用回调函数，使用递归达到每次每一帧调用一次
 function onAnimationFrame(){
 	window.requestAnimationFrame(onAnimationFrame);
 	
